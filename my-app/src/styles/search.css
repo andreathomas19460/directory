@@ -1,5 +1,15 @@
 .search-bar {
-    justify-content: center;
-    align-items: center;
-    margin: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 20px;
   }
+
+  
+.dob-label {
+  background-color: lightslategray;
+  height: 30px;
+  margin-top: 7px;
+  font-weight: bold;
+}

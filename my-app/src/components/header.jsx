@@ -5,10 +5,10 @@ class Header extends Component {
   render() {
     return (
       <header>
-        <div className="header-title">
+        <div className="header-message">
           {" "}
-          <h2>Employee Directory</h2>
-          <h3>Narrow search results with options</h3>
+          <p>Employee Directory</p>
+          <h1>Use the search fields to modify results</h1>
         </div>
       </header>
     );
