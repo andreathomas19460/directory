@@ -32,7 +32,7 @@ class Tracker extends Component {
     return (
       <div>
         <Header /> <Search handleInputChange={this.handleInputChange} />
-        <Results persons={this.state.persons} />
+        <Results persons={this.state.persons} /> 
       </div>
     );
   }

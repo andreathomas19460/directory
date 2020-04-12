@@ -1,17 +1,18 @@
 import React from "react";
 import "../styles/resultsList.css";
 
+
 function Results({ persons }) {
   return (
 
     <div className="container">
       {" "}
       <div className="results-table">
-        <table className="table table-striped table-dark">
+        <table className="table table-sortable table-striped table-dark">
           <thead>
             <tr>
               <th scope="col">Image</th>
-              <th class="asc" scope="col">Name</th>
+              <th class="asc" className="table-sortable" scope="col">Name</th>
               <th scope="col">Phone</th>
               <th class="asc" scope="col">Email</th>
               <th class="asc" scope="col">DOB</th>
@@ -21,7 +22,7 @@ function Results({ persons }) {
             {persons.map((person, index) => (
               <tr key={index}>
                 <td>
-                  <img src={person.picture.medium} alt="person-photo" />{" "}
+                <img src={person.picture.medium} alt="person-photo" />{" "}
                 </td>
                 <td>{person.name.first}</td>
                 <td>{person.phone}</td>
@@ -36,5 +37,6 @@ function Results({ persons }) {
     </div>
   );
 }
+
 
 export default Results;
