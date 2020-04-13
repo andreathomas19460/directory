@@ -5,26 +5,33 @@ import Results from "./resultsList";
 import axios from "axios";
 
 class Tracker extends Component {
-  state = { persons: [] };
+  state = { 
+    persons: [],
+    searchedPersons: []
+  };
 
   componentDidMount() {
     axios.get("https://randomuser.me/api/?results=10").then(({ data }) => {
       const persons = data.results;
-      this.setState({ persons: persons });
+      this.setState({ persons: persons, searchedPersons: persons });
     });
   }
 
   handleInputChange = event => {
-    // Getting the value and name of the input which triggered the change
-    let value = event.target.value;
-    const name = event.target.name;
+  
+    const searchValue = event.target.value;
 
-    console.log("name", name);
-    console.log("value", value);
-
-    // Updating the input's state
+    const searchedPersons = this.state.persons.filter(person => {
+      let name = person.name.first.toLowerCase();
+      const correctPersons = name.indexOf(searchValue.toLowerCase());
+  
+  
+      return correctPersons;
+    })
+  
+  //updates search input state
     this.setState({
-      [name]: value
+      searchedPersons: searchedPersons
     });
   };
 
@@ -32,7 +39,7 @@ class Tracker extends Component {
     return (
       <div>
         <Header /> <Search handleInputChange={this.handleInputChange} />
-        <Results persons={this.state.persons} /> 
+        <Results persons={this.state.searchedPersons} /> 
       </div>
     );
   }
